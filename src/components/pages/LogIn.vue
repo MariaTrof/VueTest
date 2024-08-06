@@ -1,4 +1,16 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useRouter } from 'vue-router';
+const router = useRouter()
+
+ function goToMe() {
+      router.push({ name: 'me' });
+    }
+ /* router.beforeEach((to, from, next) => {
+  if (to.name !== 'Login' && !isAuthenticated) next({ name: 'Login' })
+  else next()
+}) */
+
+</script>
 
 <template>
   <div class="container">
@@ -12,7 +24,7 @@
           <input class="input" type="text" placeholder="password" />
         </div>
       </form>
-      <button type="submit" class="btn">submit</button>
+      <button @click="goToMe" class="btn">submit</button>
     </div>
   </div>
 </template>

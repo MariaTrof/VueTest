@@ -2,17 +2,16 @@
 import { useRouter } from 'vue-router';
 const router = useRouter()
 
- function goToMain() {
-      router.push({ name: 'main' });
+ function goToLogin() {
+      router.push({ name: 'login' });
     }
 </script>
 
 <template>
-  <div class="container">
-    <div class="box">
-    <p class="title">Hello, !</p>
-        <button class="btn" @click="goToMain">Выйти</button>
-    </div>
+  <div>
+    <p class="title">Главная страница</p>
+    <button class="btn" @click="goToLogin">Войти в аккаунт</button>
+
   </div>
 </template>
 
