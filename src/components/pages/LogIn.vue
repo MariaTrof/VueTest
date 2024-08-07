@@ -23,7 +23,7 @@ const handleLogin = async () => {
             class="input"
             type="text"
             v-model="store.state.username"
-            placeholder="username"
+            placeholder="login"
           />
           <p class="title_small">Введите пароль:</p>
           <input
@@ -42,7 +42,7 @@ const handleLogin = async () => {
 <style scoped>
 .container {
   width: 100%;
-  height: 65vh;
+  height: 55vh;
   padding: 10px;
   border-radius: 15px;
   border: 1px solid rgba(254, 254, 254, 0.284);
@@ -74,7 +74,8 @@ const handleLogin = async () => {
   padding-left: 15px;
 }
 .form_box {
-  justify-content: stretch;
+ justify-content: center;
+ align-items: baseline;
 }
 
 .input_box {
@@ -110,6 +111,4 @@ const handleLogin = async () => {
   }
 }
 
-@media (max-height: 520px) {
-}
 </style>
