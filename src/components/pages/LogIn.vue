@@ -1,30 +1,40 @@
 <script setup lang="ts">
-import { useRouter } from 'vue-router';
-const router = useRouter()
+import { useRouter } from "vue-router";
+import store from "../../server/store";
 
- function goToMe() {
-      router.push({ name: 'me' });
-    }
- /* router.beforeEach((to, from, next) => {
-  if (to.name !== 'Login' && !isAuthenticated) next({ name: 'Login' })
-  else next()
-}) */
+const router = useRouter();
 
+const handleLogin = async () => {
+  await store.login();
+  if (store.state.isAuthenticated) {
+    router.push({ name: "me" });
+  }
+};
 </script>
 
 <template>
   <div class="container">
     <div class="box">
       <p class="title">Вход в аккаунт</p>
-      <form class="form_box">
+      <form @submit.prevent="handleLogin" class="form_box">
         <div class="input_box">
           <p class="title_small">Введите логин:</p>
-          <input class="input" type="text" placeholder="login" />
+          <input
+            class="input"
+            type="text"
+            v-model="store.state.username"
+            placeholder="username"
+          />
           <p class="title_small">Введите пароль:</p>
-          <input class="input" type="text" placeholder="password" />
+          <input
+            class="input"
+            type="password"
+            v-model="store.state.password"
+            placeholder="password"
+          />
         </div>
+        <button type="submit" class="btn">submit</button>
       </form>
-      <button @click="goToMe" class="btn">submit</button>
     </div>
   </div>
 </template>
